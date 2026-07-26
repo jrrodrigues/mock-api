@@ -1,0 +1,347 @@
+# Requisições de teste do contexto "homologacao" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Inclusão de Solicitação de Propostas de Portabilidade Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — sucesso (201)
+# POST /homologacao/solicitacao-portabilidade-extra-trabalhador
+# Inclusão de solicitação de propostas de portabilidade trabalhador extra para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/solicitacao-portabilidade-extra-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "ifConcessora": 999,
+  "numeroContrato": "199912345678",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Inclusão de Solicitação de Propostas de Portabilidade Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — erro documentado (412, forçado via _status)
+# POST /homologacao/solicitacao-portabilidade-extra-trabalhador
+# Inclusão de solicitação de propostas de portabilidade trabalhador extra para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/solicitacao-portabilidade-extra-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "ifConcessora": 999,
+  "numeroContrato": "199912345678",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Inclusão de Solicitação de Propostas Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — sucesso (201)
+# POST /homologacao/solicitacao-extra-trabalhador
+# Inclusão de solicitação de propostas trabalhador extra para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/solicitacao-extra-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "cpf": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "valorLiberado": 1500,
+  "numeroParcelas": 10,
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Inclusão de Solicitação de Propostas Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — erro documentado (412, forçado via _status)
+# POST /homologacao/solicitacao-extra-trabalhador
+# Inclusão de solicitação de propostas trabalhador extra para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/solicitacao-extra-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "cpf": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "valorLiberado": 1500,
+  "numeroParcelas": 10,
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Inclusão de Pagamento/Repasse de Empréstimo Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — sucesso (201)
+# POST /homologacao/pagamento-extra-trabalhador
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/pagamento-extra-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "contrato": "mock-contrato",
+  "numeroGuia": 0,
+  "valorParcelaPaga": 0,
+  "dataHoraPagamentoGuia": "26072026100000",
+  "dataHoraRepasseIF": "26072026100000",
+  "competencia": 202504,
+  "nsu": 0,
+  "verbasRescisorias": true,
+  "cpf": 0,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoTRF": 0,
+  "valorAtualizacaoMonetaria": 1,
+  "valorJurosDeMora": 1,
+  "valorMulta": 1
+}
+
+### Inclusão de Pagamento/Repasse de Empréstimo Trabalhador Extra para testes. Somente em ambiente de HOMOLOGAÇÃO. — erro documentado (412, forçado via _status)
+# POST /homologacao/pagamento-extra-trabalhador
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/pagamento-extra-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "contrato": "mock-contrato",
+  "numeroGuia": 0,
+  "valorParcelaPaga": 0,
+  "dataHoraPagamentoGuia": "26072026100000",
+  "dataHoraRepasseIF": "26072026100000",
+  "competencia": 202504,
+  "nsu": 0,
+  "verbasRescisorias": true,
+  "cpf": 0,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoTRF": 0,
+  "valorAtualizacaoMonetaria": 1,
+  "valorJurosDeMora": 1,
+  "valorMulta": 1
+}
+
+
+### Inclusão de Massa Extra de Dados de Trabalhador para testes. Somente em ambiente de HOMOLOGAÇÃO. — sucesso (201)
+# POST /homologacao/massa-extra-trabalhador
+# Inclusão de massa extra de dados de trabalhador para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/massa-extra-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "cpfTrabalhador": 0,
+  "matricula": "mock-matricula",
+  "codigoInscricaoEmpregador": 0,
+  "numeroInscricaoEmpregador": "mock-numeroInscricaoEmpregador",
+  "codigoInscricaoEstabelecimento": 0,
+  "numeroInscricaoEstabelecimento": "mock-numeroInscricaoEstabelecimento",
+  "nome": "mock-nome",
+  "codigoSexo": 0,
+  "dataNascimento": "26072026",
+  "codigoCategoriaTrabalhador": 0,
+  "elegivel": true,
+  "codigoInelegivel": 0,
+  "valorTotalVencimentos": 0,
+  "valorBaseMargem": 0,
+  "valorMargemDisponivel": 0,
+  "dataAdmissao": "26072026",
+  "dataDesligamento": "26072026",
+  "codigoMotivoDesligamento": 0,
+  "pessoaExpostaPoliticamente": 0,
+  "nomeEmpregador": "mock-nomeEmpregador",
+  "codigoClassificacaoTributaria": 0,
+  "codigoBloqueio": 0
+}
+
+### Inclusão de Massa Extra de Dados de Trabalhador para testes. Somente em ambiente de HOMOLOGAÇÃO. — erro documentado (412, forçado via _status)
+# POST /homologacao/massa-extra-trabalhador
+# Inclusão de massa extra de dados de trabalhador para testes. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/massa-extra-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "cpfTrabalhador": 0,
+  "matricula": "mock-matricula",
+  "codigoInscricaoEmpregador": 0,
+  "numeroInscricaoEmpregador": "mock-numeroInscricaoEmpregador",
+  "codigoInscricaoEstabelecimento": 0,
+  "numeroInscricaoEstabelecimento": "mock-numeroInscricaoEstabelecimento",
+  "nome": "mock-nome",
+  "codigoSexo": 0,
+  "dataNascimento": "26072026",
+  "codigoCategoriaTrabalhador": 0,
+  "elegivel": true,
+  "codigoInelegivel": 0,
+  "valorTotalVencimentos": 0,
+  "valorBaseMargem": 0,
+  "valorMargemDisponivel": 0,
+  "dataAdmissao": "26072026",
+  "dataDesligamento": "26072026",
+  "codigoMotivoDesligamento": 0,
+  "pessoaExpostaPoliticamente": 0,
+  "nomeEmpregador": "mock-nomeEmpregador",
+  "codigoClassificacaoTributaria": 0,
+  "codigoBloqueio": 0
+}
+
+
+### Inclusão de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. — sucesso (201)
+# POST /homologacao/escrituracao-extra-trabalhador
+# Inclusão de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/escrituracao-extra-trabalhador
+Content-Type: application/json
+
+{
+  "codigoIfEscrituracao": 997,
+  "contratoEscrituracao": "mock-contratoEscrituracao",
+  "idEvento": "mock-idEvento",
+  "periodoReferencia": 0,
+  "valorParcelaDesconto": 0,
+  "valorParcelaEmprestimo": 0,
+  "codigoIfEmprestimo": 997,
+  "contratoEmprestimo": "mock-contratoEmprestimo",
+  "cpf": 0,
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "11111111111111",
+  "matricula": "MAT-99999999999999213"
+}
+
+### Inclusão de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. — erro documentado (412, forçado via _status)
+# POST /homologacao/escrituracao-extra-trabalhador
+# Inclusão de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/escrituracao-extra-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoIfEscrituracao": 997,
+  "contratoEscrituracao": "mock-contratoEscrituracao",
+  "idEvento": "mock-idEvento",
+  "periodoReferencia": 0,
+  "valorParcelaDesconto": 0,
+  "valorParcelaEmprestimo": 0,
+  "codigoIfEmprestimo": 997,
+  "contratoEmprestimo": "mock-contratoEmprestimo",
+  "cpf": 0,
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "11111111111111",
+  "matricula": "MAT-99999999999999213"
+}
+
+
+### Inclusão massa extra de Empréstimo Consignado Trabalhador. — sucesso (201)
+# POST /homologacao/emprestimo-consignado-trabalhador-extra
+# Inclusão massa extra de Empréstimo Consignado Trabalhador. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/emprestimo-consignado-trabalhador-extra
+Content-Type: application/json
+
+{
+  "ifConcessora": 999,
+  "contrato": "199912345678",
+  "cpf": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "dataInicioContrato": "01012020",
+  "dataFimContrato": "01012020",
+  "dataPrimeiroDesconto": "01012020",
+  "competenciaInicioDesconto": "202401",
+  "qtdParcelas": 0,
+  "valorParcela": 0,
+  "valorEmprestimo": 0,
+  "valorIOF": 0,
+  "valorLiberado": 0,
+  "valorTroco": 0,
+  "valorTaxaAnual": 0,
+  "valorCETAnual": 0,
+  "valorTaxaMensal": 0,
+  "valorCETMensal": 0,
+  "codigoSituacaoEmprestimo": 0,
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Inclusão massa extra de Empréstimo Consignado Trabalhador. — erro documentado (412, forçado via _status)
+# POST /homologacao/emprestimo-consignado-trabalhador-extra
+# Inclusão massa extra de Empréstimo Consignado Trabalhador. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/emprestimo-consignado-trabalhador-extra?_status=412
+Content-Type: application/json
+
+{
+  "ifConcessora": 999,
+  "contrato": "199912345678",
+  "cpf": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "dataInicioContrato": "01012020",
+  "dataFimContrato": "01012020",
+  "dataPrimeiroDesconto": "01012020",
+  "competenciaInicioDesconto": "202401",
+  "qtdParcelas": 0,
+  "valorParcela": 0,
+  "valorEmprestimo": 0,
+  "valorIOF": 0,
+  "valorLiberado": 0,
+  "valorTroco": 0,
+  "valorTaxaAnual": 0,
+  "valorCETAnual": 0,
+  "valorTaxaMensal": 0,
+  "valorCETMensal": 0,
+  "codigoSituacaoEmprestimo": 0,
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Inclusão massa extra de autorização de consulta de saldo de FGTS. — sucesso (201)
+# POST /homologacao/autorizacoes-saldo-fgts
+# Inclusão massa extra de autorização de consulta de saldo de FGTS. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 201 — Operação efetuada
+POST {{baseUrl}}/homologacao/autorizacoes-saldo-fgts
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 71931445028,
+  "codigoInstFin": 999
+}
+
+### Inclusão massa extra de autorização de consulta de saldo de FGTS. — erro documentado (412, forçado via _status)
+# POST /homologacao/autorizacoes-saldo-fgts
+# Inclusão massa extra de autorização de consulta de saldo de FGTS. Somente em ambiente de HOMOLOGAÇÃO.
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/homologacao/autorizacoes-saldo-fgts?_status=412
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 71931445028,
+  "codigoInstFin": 999
+}

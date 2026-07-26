@@ -1,0 +1,45 @@
+# Requisições de teste do contexto "garantias" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Execução de Garantia de Empréstimo — sucesso (200)
+# POST /garantias/execucao-garantias-fgts
+# Serviço destinado à execução de garantias de empréstimos encerrados em decorrência do término do vínculo empregatício.
+# Resposta esperada: 200 — Execução de garantia realizada com sucesso
+POST {{baseUrl}}/garantias/execucao-garantias-fgts
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "99999999999AN1",
+  "cpfTrabalhador": 99999999999,
+  "matricula": "99999999999-A",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "42422253000101",
+  "valorSaldoDisponivelGarantiaFgts": 98587.56,
+  "valorMultaRescisoriaGarantiaFgts": 100
+}
+
+### Execução de Garantia de Empréstimo — erro documentado (412, forçado via _status)
+# POST /garantias/execucao-garantias-fgts
+# Serviço destinado à execução de garantias de empréstimos encerrados em decorrência do término do vínculo empregatício.
+# Resposta esperada: 412 — Erro na operação solicitada
+POST {{baseUrl}}/garantias/execucao-garantias-fgts?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "99999999999AN1",
+  "cpfTrabalhador": 99999999999,
+  "matricula": "99999999999-A",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "42422253000101",
+  "valorSaldoDisponivelGarantiaFgts": 98587.56,
+  "valorMultaRescisoriaGarantiaFgts": 100
+}

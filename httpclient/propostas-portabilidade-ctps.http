@@ -1,0 +1,153 @@
+# Requisições de teste do contexto "propostas-portabilidade-ctps" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Realização de Proposta de Portabilidade com garantias para solicitação realizada via CTPS Digital — sucesso (200)
+# POST /propostas-portabilidade-ctps/inclusao-garantias
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/propostas-portabilidade-ctps/inclusao-garantias
+Content-Type: application/json
+
+[
+  {
+    "codigoSolicitante": 999,
+    "numeroProposta": "199912345678",
+    "idSolicitacaoProposta": 1234,
+    "dataHoraValidadeProposta": "28102025103500",
+    "numeroParcelas": 24,
+    "valorParcela": 200,
+    "valorEmprestimo": 1500,
+    "valorTaxaAnual": 1.2,
+    "valorCETAnual": 1,
+    "valorTaxaMensal": 0.5,
+    "valorCETMensal": 0.5,
+    "contatos": [
+      {
+        "tipo": 3,
+        "contato": "fulano@email.com"
+      }
+    ],
+    "temGarantias": true,
+    "valorSaldoDisponivelGarantiaFgts": 98587.56,
+    "valorMultaRescisoriaGarantiaFgts": 5500.45,
+    "percVerbaRescisoriaGarantia": 25
+  }
+]
+
+### Realização de Proposta de Portabilidade com garantias para solicitação realizada via CTPS Digital — erro documentado (412, forçado via _status)
+# POST /propostas-portabilidade-ctps/inclusao-garantias
+# Resposta esperada: 412 — Requisicao com dados invalidos
+POST {{baseUrl}}/propostas-portabilidade-ctps/inclusao-garantias?_status=412
+Content-Type: application/json
+
+[
+  {
+    "codigoSolicitante": 999,
+    "numeroProposta": "199912345678",
+    "idSolicitacaoProposta": 1234,
+    "dataHoraValidadeProposta": "28102025103500",
+    "numeroParcelas": 24,
+    "valorParcela": 200,
+    "valorEmprestimo": 1500,
+    "valorTaxaAnual": 1.2,
+    "valorCETAnual": 1,
+    "valorTaxaMensal": 0.5,
+    "valorCETMensal": 0.5,
+    "contatos": [
+      {
+        "tipo": 3,
+        "contato": "fulano@email.com"
+      }
+    ],
+    "temGarantias": true,
+    "valorSaldoDisponivelGarantiaFgts": 98587.56,
+    "valorMultaRescisoriaGarantiaFgts": 5500.45,
+    "percVerbaRescisoriaGarantia": 25
+  }
+]
+
+
+### (DEPRECIADO) Realização de Proposta de Portabilidade para solicitação realizada via CTPS Digital (deprecated: usar /propostas-portabilidade-ctps/inclusao-garantias) — sucesso (200)
+# POST /propostas-portabilidade-ctps/inclusao
+# Realização de Proposta de Portabilidade para solicitação realizada via CTPS Digital
+# [DEPRECIADO no swagger.json]
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/propostas-portabilidade-ctps/inclusao
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroProposta": "199912345678",
+  "idSolicitacaoProposta": 1234,
+  "dataHoraValidadeProposta": "28102025103500",
+  "numeroParcelas": 24,
+  "valorParcela": 200,
+  "valorEmprestimo": 1500,
+  "valorTaxaAnual": 1.2,
+  "valorCETAnual": 1,
+  "valorTaxaMensal": 0.5,
+  "valorCETMensal": 0.5,
+  "contatos": [
+    {
+      "tipo": 3,
+      "contato": "fulano@email.com"
+    }
+  ],
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 98587.56,
+  "valorMultaRescisoriaGarantiaFgts": 5500.45,
+  "percVerbaRescisoriaGarantia": 25
+}
+
+### (DEPRECIADO) Realização de Proposta de Portabilidade para solicitação realizada via CTPS Digital (deprecated: usar /propostas-portabilidade-ctps/inclusao-garantias) — erro documentado (412, forçado via _status)
+# POST /propostas-portabilidade-ctps/inclusao
+# Realização de Proposta de Portabilidade para solicitação realizada via CTPS Digital
+# [DEPRECIADO no swagger.json]
+# Resposta esperada: 412 — Requisicao com dados invalidos
+POST {{baseUrl}}/propostas-portabilidade-ctps/inclusao?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroProposta": "199912345678",
+  "idSolicitacaoProposta": 1234,
+  "dataHoraValidadeProposta": "28102025103500",
+  "numeroParcelas": 24,
+  "valorParcela": 200,
+  "valorEmprestimo": 1500,
+  "valorTaxaAnual": 1.2,
+  "valorCETAnual": 1,
+  "valorTaxaMensal": 0.5,
+  "valorCETMensal": 0.5,
+  "contatos": [
+    {
+      "tipo": 3,
+      "contato": "fulano@email.com"
+    }
+  ],
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 98587.56,
+  "valorMultaRescisoriaGarantiaFgts": 5500.45,
+  "percVerbaRescisoriaGarantia": 25
+}
+
+
+### Consulta de Solicitações de Propostas de Portabilidade válidas (paginado) realizadas via CTPS Digital. — sucesso (200)
+# GET /propostas-portabilidade-ctps/solicitacoes-trabalhador-paginado
+# Consulta de Solicitações de Propostas de Portabilidade válidas (não expiradas) realizadas via CTPS Digital. Paginação inicial em 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 200 — Consulta efetuada
+GET {{baseUrl}}/propostas-portabilidade-ctps/solicitacoes-trabalhador-paginado?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&nroPagina=1
+
+### Consulta de Solicitações de Propostas de Portabilidade válidas (paginado) realizadas via CTPS Digital. — erro documentado (412, forçado via _status)
+# GET /propostas-portabilidade-ctps/solicitacoes-trabalhador-paginado
+# Consulta de Solicitações de Propostas de Portabilidade válidas (não expiradas) realizadas via CTPS Digital. Paginação inicial em 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 412 — Requisicao com dados invalidos
+GET {{baseUrl}}/propostas-portabilidade-ctps/solicitacoes-trabalhador-paginado?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&nroPagina=1&_status=412

@@ -1,0 +1,36 @@
+# Requisições de teste do contexto "consultas-trabalhador" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Download de Arquivo Credito do Trabalhador — sucesso (200)
+# GET /consultas-trabalhador/download-arquivo/{id}
+# Download de Arquivo eConsignado Trabalhador
+# Resposta esperada: 200 — Download efetuado
+GET {{baseUrl}}/consultas-trabalhador/download-arquivo/0
+
+### Download de Arquivo Credito do Trabalhador — erro documentado (412, forçado via _status)
+# GET /consultas-trabalhador/download-arquivo/{id}
+# Download de Arquivo eConsignado Trabalhador
+# Resposta esperada: 412 — Arquivo solicitado no localizado
+GET {{baseUrl}}/consultas-trabalhador/download-arquivo/0?_status=412
+
+
+### Consulta de Arquivos do Credito do Trabalhador — sucesso (200)
+# GET /consultas-trabalhador/consultar-arquivos
+# Consulta de Arquivos do eConsignado Trabalhador
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 200 — Consulta efetuada
+GET {{baseUrl}}/consultas-trabalhador/consultar-arquivos?codigoSolicitante=0&tipoArquivo=0&dataGeracaoArquivoDe=mock-dataGeracaoArquivoDe&dataGeracaoArquivoAte=mock-dataGeracaoArquivoAte&dataInicioPeriodoDe=mock-dataInicioPeriodoDe&dataInicioPeriodoAte=mock-dataInicioPeriodoAte&competencia=0
+
+### Consulta de Arquivos do Credito do Trabalhador — erro documentado (412, forçado via _status)
+# GET /consultas-trabalhador/consultar-arquivos
+# Consulta de Arquivos do eConsignado Trabalhador
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 412 — Requisicao com dados invalidos
+GET {{baseUrl}}/consultas-trabalhador/consultar-arquivos?codigoSolicitante=0&tipoArquivo=0&dataGeracaoArquivoDe=mock-dataGeracaoArquivoDe&dataGeracaoArquivoAte=mock-dataGeracaoArquivoAte&dataInicioPeriodoDe=mock-dataInicioPeriodoDe&dataInicioPeriodoAte=mock-dataInicioPeriodoAte&competencia=0&_status=412

@@ -1,0 +1,90 @@
+# Requisições de teste do contexto "emprestimos-legados" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Exclusão de Empréstimo Legado — sucesso (200)
+# PUT /emprestimos-legados/excluir-emprestimo-legado-trabalhador
+# Serviço de Exclusão de Empréstimo Legado
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos-legados/excluir-emprestimo-legado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "motivoExclusao": 7
+}
+
+### Exclusão de Empréstimo Legado — erro documentado (412, forçado via _status)
+# PUT /emprestimos-legados/excluir-emprestimo-legado-trabalhador
+# Serviço de Exclusão de Empréstimo Legado
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos-legados/excluir-emprestimo-legado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "motivoExclusao": 7
+}
+
+
+### Inclusão de Empréstimo Legado — sucesso (200)
+# POST /emprestimos-legados/incluir-emprestimo-legado-trabalhador
+# Serviço de Inclusão de Empréstimo Legado
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos-legados/incluir-emprestimo-legado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "dataInicioContrato": "01012024",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorTaxaMensal": 0.3,
+  "valorCETMensal": 0.3,
+  "qtdParcelasPagas": 10,
+  "valorSaldoDevedor": 1000.22,
+  "codigoTipoContrato": 1
+}
+
+### Inclusão de Empréstimo Legado — erro documentado (412, forçado via _status)
+# POST /emprestimos-legados/incluir-emprestimo-legado-trabalhador
+# Serviço de Inclusão de Empréstimo Legado
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos-legados/incluir-emprestimo-legado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "dataInicioContrato": "01012024",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorTaxaMensal": 0.3,
+  "valorCETMensal": 0.3,
+  "qtdParcelasPagas": 10,
+  "valorSaldoDevedor": 1000.22,
+  "codigoTipoContrato": 1
+}

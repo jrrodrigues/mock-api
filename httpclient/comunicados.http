@@ -1,0 +1,53 @@
+# Requisições de teste do contexto "comunicados" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Marcação de comunicado como lido — sucesso (200)
+# PUT /comunicados/marcar-leitura-comunicado
+# Marcação de um comunicado como lido.
+# Query obrigatória: numero, codigoSolicitante
+# Resposta esperada: 200 — Comunicado marcado como lido com sucesso.
+PUT {{baseUrl}}/comunicados/marcar-leitura-comunicado?numero=0&codigoSolicitante=0
+
+### Marcação de comunicado como lido — erro documentado (412, forçado via _status)
+# PUT /comunicados/marcar-leitura-comunicado
+# Marcação de um comunicado como lido.
+# Query obrigatória: numero, codigoSolicitante
+# Resposta esperada: 412 — Erro na operação solicitada
+PUT {{baseUrl}}/comunicados/marcar-leitura-comunicado?numero=0&codigoSolicitante=0&_status=412
+
+
+### Consulta de comunicados — sucesso (200)
+# GET /comunicados/consultar-comunicados
+# Consulta de comunicados.
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 200 — Consulta efetuada com sucesso.
+GET {{baseUrl}}/comunicados/consultar-comunicados?codigoSolicitante=0
+
+### Consulta de comunicados — erro documentado (412, forçado via _status)
+# GET /comunicados/consultar-comunicados
+# Consulta de comunicados.
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 412 — Erro na operação solicitada
+GET {{baseUrl}}/comunicados/consultar-comunicados?codigoSolicitante=0&_status=412
+
+
+### Consulta de comunicado — sucesso (200)
+# GET /comunicados/consultar-comunicado
+# Serviço de Consulta de comunicado por número.
+# Query obrigatória: numero, codigoSolicitante
+# Resposta esperada: 200 — Consulta efetuada com sucesso.
+GET {{baseUrl}}/comunicados/consultar-comunicado?numero=0&codigoSolicitante=0
+
+### Consulta de comunicado — erro documentado (412, forçado via _status)
+# GET /comunicados/consultar-comunicado
+# Serviço de Consulta de comunicado por número.
+# Query obrigatória: numero, codigoSolicitante
+# Resposta esperada: 412 — Erro na operação solicitada
+GET {{baseUrl}}/comunicados/consultar-comunicado?numero=0&codigoSolicitante=0&_status=412

@@ -1,0 +1,1047 @@
+# Requisições de teste do contexto "emprestimos" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Suspensão de Empréstimo — sucesso (200)
+# PUT /emprestimos/suspender-consignado-trabalhador
+# Operação de Suspensão de Empréstimo
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/suspender-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "mock-numeroInscricaoEmpregador",
+  "codigoSolicitante": 0,
+  "numeroContrato": "mock-numeroContrato"
+}
+
+### Suspensão de Empréstimo — erro documentado (412, forçado via _status)
+# PUT /emprestimos/suspender-consignado-trabalhador
+# Operação de Suspensão de Empréstimo
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/suspender-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "mock-numeroInscricaoEmpregador",
+  "codigoSolicitante": 0,
+  "numeroContrato": "mock-numeroContrato"
+}
+
+
+### Reativação de Empréstimo — sucesso (200)
+# PUT /emprestimos/reativar-consignado-trabalhador
+# Operação de Reativação de Empréstimo
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/reativar-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678"
+}
+
+### Reativação de Empréstimo — erro documentado (412, forçado via _status)
+# PUT /emprestimos/reativar-consignado-trabalhador
+# Operação de Reativação de Empréstimo
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/reativar-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678"
+}
+
+
+### Exclusão de Portabilidade — sucesso (200)
+# PUT /emprestimos/excluir-portabilidade-trabalhador
+# Operacao de Exclusão de Portabilidade
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/excluir-portabilidade-trabalhador
+Content-Type: application/json
+
+{
+  "numeroUnico": 7234567890123457000,
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoOrigem": 997,
+  "codigoProponente": 995,
+  "contratosExcluidos": [
+    {
+      "numeroContrato": "199912345678",
+      "ultimaParcelaPaga": 3
+    }
+  ]
+}
+
+### Exclusão de Portabilidade — erro documentado (412, forçado via _status)
+# PUT /emprestimos/excluir-portabilidade-trabalhador
+# Operacao de Exclusão de Portabilidade
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/excluir-portabilidade-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "numeroUnico": 7234567890123457000,
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "codigoOrigem": 997,
+  "codigoProponente": 995,
+  "contratosExcluidos": [
+    {
+      "numeroContrato": "199912345678",
+      "ultimaParcelaPaga": 3
+    }
+  ]
+}
+
+
+### Exclusão de Consignado — sucesso (200)
+# PUT /emprestimos/excluir-consignado-trabalhador
+# Serviço de de Exclusao de Consignado
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/excluir-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "motivoExclusao": 7
+}
+
+### Exclusão de Consignado — erro documentado (412, forçado via _status)
+# PUT /emprestimos/excluir-consignado-trabalhador
+# Serviço de de Exclusao de Consignado
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/excluir-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "motivoExclusao": 7
+}
+
+
+### Exclusão de antecipação de parcela do Trabalhador — sucesso (200)
+# PUT /emprestimos/excluir-antecipar-parcela
+# Serviço de exclusão de antecipação de parcela do trabalhador
+# Resposta esperada: 200 — Operação efetuada
+PUT {{baseUrl}}/emprestimos/excluir-antecipar-parcela
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "idCompetencia": "202501"
+}
+
+### Exclusão de antecipação de parcela do Trabalhador — erro documentado (412, forçado via _status)
+# PUT /emprestimos/excluir-antecipar-parcela
+# Serviço de exclusão de antecipação de parcela do trabalhador
+# Resposta esperada: 412 — Requisição com dados inválidos
+PUT {{baseUrl}}/emprestimos/excluir-antecipar-parcela?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "idCompetencia": "202501"
+}
+
+
+### Alteração de Número Único da Portabilidade — sucesso (200)
+# PUT /emprestimos/alterar-nu-portabilidade-trabalhador
+# Operacao de Alteração do Numero Único da Portabilidade
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/alterar-nu-portabilidade-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroUnico": 7234567890123457000,
+  "numeroUnicoNovo": 8234567890777457000
+}
+
+### Alteração de Número Único da Portabilidade — erro documentado (412, forçado via _status)
+# PUT /emprestimos/alterar-nu-portabilidade-trabalhador
+# Operacao de Alteração do Numero Único da Portabilidade
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/alterar-nu-portabilidade-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroUnico": 7234567890123457000,
+  "numeroUnicoNovo": 8234567890777457000
+}
+
+
+### Alteração de Empréstimo Encerrado por término de vínculo — sucesso (200)
+# PUT /emprestimos/alterar-consignado-encerrado-trabalhador
+# Serviço de Alteração de Empréstimo Encerrado por término de vínculo
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/alterar-consignado-encerrado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "mock-numeroContrato",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "mock-nomeTrabalhador",
+  "numeroParcelas": 10,
+  "valorParcela": 100
+}
+
+### Alteração de Empréstimo Encerrado por término de vínculo — erro documentado (412, forçado via _status)
+# PUT /emprestimos/alterar-consignado-encerrado-trabalhador
+# Serviço de Alteração de Empréstimo Encerrado por término de vínculo
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/alterar-consignado-encerrado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "mock-numeroContrato",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "mock-nomeTrabalhador",
+  "numeroParcelas": 10,
+  "valorParcela": 100
+}
+
+
+### Alteração de CBC Portabilidade — sucesso (200)
+# PUT /emprestimos/alterar-cbc-portabilidade-trabalhador
+# Operacao de Alteracao CBC Portabilidade
+# Resposta esperada: 200 — Operacao efetuada
+PUT {{baseUrl}}/emprestimos/alterar-cbc-portabilidade-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 995,
+  "codigoProponente": 997,
+  "numeroUnico": 7234567890123457000
+}
+
+### Alteração de CBC Portabilidade — erro documentado (412, forçado via _status)
+# PUT /emprestimos/alterar-cbc-portabilidade-trabalhador
+# Operacao de Alteracao CBC Portabilidade
+# Resposta esperada: 412 — Erro na Operacao solicitada
+PUT {{baseUrl}}/emprestimos/alterar-cbc-portabilidade-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 995,
+  "codigoProponente": 997,
+  "numeroUnico": 7234567890123457000
+}
+
+
+### Troca de Titularidade de Empréstimo Consignado em lote — sucesso (200)
+# POST /emprestimos/troca-titularidade-lote-trabalhador
+# Serviço de Troca de Titularidade de Empréstimo Consignado em lote
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/emprestimos/troca-titularidade-lote-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "lote": [
+    {
+      "cpfTrabalhador": 87070728050,
+      "matricula": "MAT213",
+      "codigoInscricaoEmpregador": 1,
+      "numeroInscricaoEmpregador": "66106660000160",
+      "cbcCompradora": 0,
+      "numeroContrato": "mock-numeroContrato",
+      "numeroContratoNovo": "mock-numeroContratoNovo"
+    }
+  ]
+}
+
+### Troca de Titularidade de Empréstimo Consignado em lote — erro documentado (412, forçado via _status)
+# POST /emprestimos/troca-titularidade-lote-trabalhador
+# Serviço de Troca de Titularidade de Empréstimo Consignado em lote
+# Resposta esperada: 412 — Erro na operação solicitada
+POST {{baseUrl}}/emprestimos/troca-titularidade-lote-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "lote": [
+    {
+      "cpfTrabalhador": 87070728050,
+      "matricula": "MAT213",
+      "codigoInscricaoEmpregador": 1,
+      "numeroInscricaoEmpregador": "66106660000160",
+      "cbcCompradora": 0,
+      "numeroContrato": "mock-numeroContrato",
+      "numeroContratoNovo": "mock-numeroContratoNovo"
+    }
+  ]
+}
+
+
+### Tombamento Compulsório — sucesso (200)
+# POST /emprestimos/tombamento-compulsorio
+# Serviço de Tombamento de Empréstimo Consignado Trabalhador
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/tombamento-compulsorio
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "02012024",
+  "valorCETMensal": 0.3,
+  "cnpjOperador": "22222222222222"
+}
+
+### Tombamento Compulsório — erro documentado (412, forçado via _status)
+# POST /emprestimos/tombamento-compulsorio
+# Serviço de Tombamento de Empréstimo Consignado Trabalhador
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/tombamento-compulsorio?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "02012024",
+  "valorCETMensal": 0.3,
+  "cnpjOperador": "22222222222222"
+}
+
+
+### Reversão de Refinanciamento do Trabalhador — sucesso (200)
+# POST /emprestimos/reverter-refinanciamento-trabalhador
+# Serviço de Reversão de Refinanciamento do Trabalhador
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/reverter-refinanciamento-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "mock-numeroContrato",
+  "motivoReversao": 0
+}
+
+### Reversão de Refinanciamento do Trabalhador — erro documentado (412, forçado via _status)
+# POST /emprestimos/reverter-refinanciamento-trabalhador
+# Serviço de Reversão de Refinanciamento do Trabalhador
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/reverter-refinanciamento-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "mock-numeroContrato",
+  "motivoReversao": 0
+}
+
+
+### Renegociação de Empréstimo Consignado encerrado — sucesso (200)
+# POST /emprestimos/renegociar-consignado-trabalhador
+# Operação de Renegociação de Empréstimo Consignado encerrado
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/renegociar-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "numeroContratoEncerrado": "199712345679",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202402",
+  "dataFimContrato": "01122024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "01022024",
+  "valorCETMensal": 0.3,
+  "cnpjOperador": "22222222222222"
+}
+
+### Renegociação de Empréstimo Consignado encerrado — erro documentado (412, forçado via _status)
+# POST /emprestimos/renegociar-consignado-trabalhador
+# Operação de Renegociação de Empréstimo Consignado encerrado
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/renegociar-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "numeroContratoEncerrado": "199712345679",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202402",
+  "dataFimContrato": "01122024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "01022024",
+  "valorCETMensal": 0.3,
+  "cnpjOperador": "22222222222222"
+}
+
+
+### Averbação de Refinanciamento do Trabalhador — sucesso (200)
+# POST /emprestimos/realizar-refinanciamento-trabalhador
+# Serviço de Averbação de Refinanciamento do Trabalhador
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/realizar-refinanciamento-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012020",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "01012020",
+  "numeroParcelas": 0,
+  "valorEmprestimo": 0,
+  "valorParcela": 0,
+  "valorIOF": 0,
+  "valorTroco": 0,
+  "valorPago": 0,
+  "valorTaxaAnual": 0,
+  "valorCETAnual": 0,
+  "valorTaxaMensal": 0,
+  "dataPrimeiroDesconto": "01012020",
+  "valorCETMensal": 0,
+  "cnpjOperador": "22222222222222",
+  "listaContratosQuitadosTrabalhador": [
+    {
+      "numeroContrato": "mock-numeroContrato"
+    }
+  ],
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Averbação de Refinanciamento do Trabalhador — erro documentado (412, forçado via _status)
+# POST /emprestimos/realizar-refinanciamento-trabalhador
+# Serviço de Averbação de Refinanciamento do Trabalhador
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/realizar-refinanciamento-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012020",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "01012020",
+  "numeroParcelas": 0,
+  "valorEmprestimo": 0,
+  "valorParcela": 0,
+  "valorIOF": 0,
+  "valorTroco": 0,
+  "valorPago": 0,
+  "valorTaxaAnual": 0,
+  "valorCETAnual": 0,
+  "valorTaxaMensal": 0,
+  "dataPrimeiroDesconto": "01012020",
+  "valorCETMensal": 0,
+  "cnpjOperador": "22222222222222",
+  "listaContratosQuitadosTrabalhador": [
+    {
+      "numeroContrato": "mock-numeroContrato"
+    }
+  ],
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Envio de Saldo Devedor de empréstimo do trabalhador — sucesso (200)
+# POST /emprestimos/incluir-saldo-devedor-trabalhador
+# Serviço de Envio de Saldo Devedor de empréstimo do trabalhador
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/emprestimos/incluir-saldo-devedor-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "valorSaldoDevedor": 0
+}
+
+### Envio de Saldo Devedor de empréstimo do trabalhador — erro documentado (412, forçado via _status)
+# POST /emprestimos/incluir-saldo-devedor-trabalhador
+# Serviço de Envio de Saldo Devedor de empréstimo do trabalhador
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/emprestimos/incluir-saldo-devedor-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "valorSaldoDevedor": 0
+}
+
+
+### Envio de Saldo Devedor de empréstimo do trabalhador em lote — sucesso (200)
+# POST /emprestimos/incluir-saldo-devedor-lote-trabalhador
+# Serviço de Envio de Saldo Devedor de empréstimo do trabalhador em lote
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/emprestimos/incluir-saldo-devedor-lote-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "lote": [
+    {
+      "numeroContrato": "1997123478",
+      "cpfTrabalhador": 87070728050,
+      "matricula": "MAT-99999999999999213",
+      "codigoInscricaoEmpregador": 1,
+      "numeroInscricaoEmpregador": "66106660000160",
+      "valorSaldoDevedor": 0
+    }
+  ]
+}
+
+### Envio de Saldo Devedor de empréstimo do trabalhador em lote — erro documentado (412, forçado via _status)
+# POST /emprestimos/incluir-saldo-devedor-lote-trabalhador
+# Serviço de Envio de Saldo Devedor de empréstimo do trabalhador em lote
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/emprestimos/incluir-saldo-devedor-lote-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "lote": [
+    {
+      "numeroContrato": "1997123478",
+      "cpfTrabalhador": 87070728050,
+      "matricula": "MAT-99999999999999213",
+      "codigoInscricaoEmpregador": 1,
+      "numeroInscricaoEmpregador": "66106660000160",
+      "valorSaldoDevedor": 0
+    }
+  ]
+}
+
+
+### Inclusão de Informações do Contrato — sucesso (200)
+# POST /emprestimos/incluir-informacoes-contrato-trabalhador
+# Serviço de Inclusão de Informações do Contrato
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/emprestimos/incluir-informacoes-contrato-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "contratoEmprestimo": "mock-contratoEmprestimo",
+  "indicadorAssinaturaCertDigitalICPBrasil": true,
+  "ip": "mock-ip",
+  "dataHoraAssinatura": "26072026100000",
+  "indicadorAnalfabetismo": true,
+  "documentoOficialComFotoFrente": "mock-documentoOficialComFotoFrente",
+  "documentoOficialComFotoVerso": "mock-documentoOficialComFotoVerso",
+  "registroBiometricoFacial": "mock-registroBiometricoFacial",
+  "baseBiometrica": "mock-baseBiometrica",
+  "score": 0,
+  "indicadorValidacaoComDocOficial": true,
+  "latitude": 0,
+  "longitude": 0,
+  "dispositivo": "mock-dispositivo",
+  "nsuContrato": 0,
+  "tipoAutenticacao": 0
+}
+
+### Inclusão de Informações do Contrato — erro documentado (412, forçado via _status)
+# POST /emprestimos/incluir-informacoes-contrato-trabalhador
+# Serviço de Inclusão de Informações do Contrato
+# Resposta esperada: 412 — Erro na operação solicitada
+POST {{baseUrl}}/emprestimos/incluir-informacoes-contrato-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "199712345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "contratoEmprestimo": "mock-contratoEmprestimo",
+  "indicadorAssinaturaCertDigitalICPBrasil": true,
+  "ip": "mock-ip",
+  "dataHoraAssinatura": "26072026100000",
+  "indicadorAnalfabetismo": true,
+  "documentoOficialComFotoFrente": "mock-documentoOficialComFotoFrente",
+  "documentoOficialComFotoVerso": "mock-documentoOficialComFotoVerso",
+  "registroBiometricoFacial": "mock-registroBiometricoFacial",
+  "baseBiometrica": "mock-baseBiometrica",
+  "score": 0,
+  "indicadorValidacaoComDocOficial": true,
+  "latitude": 0,
+  "longitude": 0,
+  "dispositivo": "mock-dispositivo",
+  "nsuContrato": 0,
+  "tipoAutenticacao": 0
+}
+
+
+### Averbação de Portabilidade — sucesso (200)
+# POST /emprestimos/averbar-portabilidade-trabalhador
+# Serviço de Averbação Portabilidade
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/averbar-portabilidade-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "numeroUnico": 7234567890123457000,
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "competenciaInicioDesconto": 202501,
+  "dataPrimeiroDesconto": "01012020",
+  "dataInicioContrato": "01012025",
+  "dataFimContrato": "01012025",
+  "numeroParcelas": 10,
+  "valorParcela": 100,
+  "valorEmprestimo": 1000,
+  "valorPago": 120,
+  "valorTaxaAnual": 1.2,
+  "valorCETAnual": 1.1,
+  "valorTaxaMensal": 0.7,
+  "valorCETMensal": 0.5,
+  "cnpjOperador": "22222222222222",
+  "numeroProposta": "NRO_PROP_123",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Averbação de Portabilidade — erro documentado (412, forçado via _status)
+# POST /emprestimos/averbar-portabilidade-trabalhador
+# Serviço de Averbação Portabilidade
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/averbar-portabilidade-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "numeroUnico": 7234567890123457000,
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "competenciaInicioDesconto": 202501,
+  "dataPrimeiroDesconto": "01012020",
+  "dataInicioContrato": "01012025",
+  "dataFimContrato": "01012025",
+  "numeroParcelas": 10,
+  "valorParcela": 100,
+  "valorEmprestimo": 1000,
+  "valorPago": 120,
+  "valorTaxaAnual": 1.2,
+  "valorCETAnual": 1.1,
+  "valorTaxaMensal": 0.7,
+  "valorCETMensal": 0.5,
+  "cnpjOperador": "22222222222222",
+  "numeroProposta": "NRO_PROP_123",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Averbação de Empréstimo Consignado — sucesso (200)
+# POST /emprestimos/averbar-consignado-trabalhador
+# Operação de Averbação de Empréstimo Consignado
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/averbar-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "02012024",
+  "valorCETMensal": 0.3,
+  "numeroProposta": "NRO_PROP_123",
+  "cnpjOperador": "22222222222222",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+### Averbação de Empréstimo Consignado — erro documentado (412, forçado via _status)
+# POST /emprestimos/averbar-consignado-trabalhador
+# Operação de Averbação de Empréstimo Consignado
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/averbar-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "numeroContrato": "199912345678",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "Trabalhador Fulano de tal",
+  "dataInicioContrato": "01012024",
+  "competenciaInicioDesconto": "202401",
+  "dataFimContrato": "12012024",
+  "numeroParcelas": 10,
+  "valorLiberado": 1000,
+  "valorEmprestimo": 1010,
+  "valorParcela": 100,
+  "valorIOF": 1,
+  "valorTaxaAnual": 5,
+  "valorCETAnual": 5,
+  "valorTaxaMensal": 0.3,
+  "dataPrimeiroDesconto": "02012024",
+  "valorCETMensal": 0.3,
+  "numeroProposta": "NRO_PROP_123",
+  "cnpjOperador": "22222222222222",
+  "temGarantias": true,
+  "valorSaldoDisponivelGarantiaFgts": 500,
+  "valorMultaRescisoriaGarantiaFgts": 200,
+  "percVerbaRescisoriaGarantia": 15
+}
+
+
+### Antecipação de parcelas do Trabalhador — sucesso (200)
+# POST /emprestimos/antecipar-parcela
+# Serviço de antecipação de parcela do trabalhador
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/emprestimos/antecipar-parcela
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "listaCompetencias": [
+    "202501"
+  ]
+}
+
+### Antecipação de parcelas do Trabalhador — erro documentado (412, forçado via _status)
+# POST /emprestimos/antecipar-parcela
+# Serviço de antecipação de parcela do trabalhador
+# Resposta esperada: 412 — Requisição com dados inválidos
+POST {{baseUrl}}/emprestimos/antecipar-parcela?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "numeroContrato": "1997123478",
+  "listaCompetencias": [
+    "202501"
+  ]
+}
+
+
+### Alteração de Empréstimo — sucesso (200)
+# POST /emprestimos/alterar-consignado-trabalhador
+# Serviço de Alteração de Empréstimo
+# Resposta esperada: 200 — Operacao efetuada
+POST {{baseUrl}}/emprestimos/alterar-consignado-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "mock-numeroContrato",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "mock-nomeTrabalhador",
+  "numeroParcelas": 10,
+  "valorParcela": 100,
+  "cnpjOperador": "22222222222222"
+}
+
+### Alteração de Empréstimo — erro documentado (412, forçado via _status)
+# POST /emprestimos/alterar-consignado-trabalhador
+# Serviço de Alteração de Empréstimo
+# Resposta esperada: 412 — Erro na Operacao solicitada
+POST {{baseUrl}}/emprestimos/alterar-consignado-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 997,
+  "numeroContrato": "mock-numeroContrato",
+  "cpfTrabalhador": 87070728050,
+  "matricula": "MAT-99999999999999213",
+  "codigoInscricaoEmpregador": 1,
+  "numeroInscricaoEmpregador": "66106660000160",
+  "nomeTrabalhador": "mock-nomeTrabalhador",
+  "numeroParcelas": 10,
+  "valorParcela": 100,
+  "cnpjOperador": "22222222222222"
+}
+
+
+### Consulta de Valores das Garantias associadas aos contratos. Serviço Paginado — sucesso (200)
+# GET /emprestimos/garantias-emprestimos-trabalhador
+# Consulta de Valores das Garantias associadas aos contratos. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização.
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/garantias-emprestimos-trabalhador?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1
+
+### Consulta de Valores das Garantias associadas aos contratos. Serviço Paginado — erro documentado (412, forçado via _status)
+# GET /emprestimos/garantias-emprestimos-trabalhador
+# Consulta de Valores das Garantias associadas aos contratos. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização.
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/emprestimos/garantias-emprestimos-trabalhador?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1&_status=412
+
+
+### Consulta de Situação da Documentação do Empréstimo — sucesso (200)
+# GET /emprestimos/emprestimo-situacao-doc-trabalhador
+# Serviço de Consulta de Emprestimo Situação da Documentação
+# Query obrigatória: codigoSolicitante, dataInicialInclusao, dataFinalInclusao
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/emprestimo-situacao-doc-trabalhador?codigoSolicitante=0&dataInicialInclusao=mock-dataInicialInclusao&dataFinalInclusao=mock-dataFinalInclusao&cpfTrabalhador=0&classificadorModalidade=0&classificadorSituacaoEmprestimo=0&classificadorSituacaoDoc=3
+
+### Consulta de Situação da Documentação do Empréstimo — erro documentado (412, forçado via _status)
+# GET /emprestimos/emprestimo-situacao-doc-trabalhador
+# Serviço de Consulta de Emprestimo Situação da Documentação
+# Query obrigatória: codigoSolicitante, dataInicialInclusao, dataFinalInclusao
+# Resposta esperada: 412 — Requisição com dados inválidos
+GET {{baseUrl}}/emprestimos/emprestimo-situacao-doc-trabalhador?codigoSolicitante=0&dataInicialInclusao=mock-dataInicialInclusao&dataFinalInclusao=mock-dataFinalInclusao&cpfTrabalhador=0&classificadorModalidade=0&classificadorSituacaoEmprestimo=0&classificadorSituacaoDoc=3&_status=412
+
+
+### Consulta de Informações de Repasse de Pagamentos de Empréstimos do Trabalhador — sucesso (200)
+# GET /emprestimos/consultar-repasse-pagamentos
+# Serviço de Consulta de Informações de Repasse de Pagamentos de Empréstimos do Trabalhador. Serviço paginado, com pagina inicial = 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/consultar-repasse-pagamentos?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&cpf=0&codigoInscricaoEmpregador=0&numeroInscricaoEmpregador=mock-numeroInscricaoEmpregador&nroPagina=1
+
+### Consulta de Informações de Repasse de Pagamentos de Empréstimos do Trabalhador — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-repasse-pagamentos
+# Serviço de Consulta de Informações de Repasse de Pagamentos de Empréstimos do Trabalhador. Serviço paginado, com pagina inicial = 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/emprestimos/consultar-repasse-pagamentos?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&cpf=0&codigoInscricaoEmpregador=0&numeroInscricaoEmpregador=mock-numeroInscricaoEmpregador&nroPagina=1&_status=412
+
+
+### Consulta de Portabilidade — sucesso (200)
+# GET /emprestimos/consultar-portabilidade-trabalhador
+# Servico de Consulta de Portabilidade. 
+# Query obrigatória: codigoProponente
+# Resposta esperada: 200 — Operacao efetuada
+GET {{baseUrl}}/emprestimos/consultar-portabilidade-trabalhador?codigoProponente=995&codigoOrigem=999&numeroUnico=7234567890123457000&cpfTrabalhador=87070728050&matricula=MAT213&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=66106660000160&dataInicioOperacao=27052025000000&dataFimOperacao=30052025235959&classificadorSituacao=1&nroPagina=1
+
+### Consulta de Portabilidade — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-portabilidade-trabalhador
+# Servico de Consulta de Portabilidade. 
+# Query obrigatória: codigoProponente
+# Resposta esperada: 412 — Retorno com erro no servico de Consulta de Portabilidade
+GET {{baseUrl}}/emprestimos/consultar-portabilidade-trabalhador?codigoProponente=995&codigoOrigem=999&numeroUnico=7234567890123457000&cpfTrabalhador=87070728050&matricula=MAT213&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=66106660000160&dataInicioOperacao=27052025000000&dataFimOperacao=30052025235959&classificadorSituacao=1&nroPagina=1&_status=412
+
+
+### Consultar Informações do Contrato — sucesso (200)
+# GET /emprestimos/consultar-informacoes-contrato-trabalhador
+# Serviço de Consulta de Informações do Contrato
+# Query obrigatória: tipoArquivo
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/consultar-informacoes-contrato-trabalhador?codigoSolicitante=0&numeroContrato=0&tipoArquivo=0
+
+### Consultar Informações do Contrato — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-informacoes-contrato-trabalhador
+# Serviço de Consulta de Informações do Contrato
+# Query obrigatória: tipoArquivo
+# Resposta esperada: 412 — Requisição com dados inválidos
+GET {{baseUrl}}/emprestimos/consultar-informacoes-contrato-trabalhador?codigoSolicitante=0&numeroContrato=0&tipoArquivo=0&_status=412
+
+
+### Consulta de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. — sucesso (200)
+# GET /emprestimos/consultar-escrituracoes-remuneracoes
+# Serviço de Consulta de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. Serviço paginado, com pagina inicial = 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/consultar-escrituracoes-remuneracoes?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&cpf=0&codigoInscricaoEmpregador=0&numeroInscricaoEmpregador=mock-numeroInscricaoEmpregador&nroPagina=1
+
+### Consulta de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-escrituracoes-remuneracoes
+# Serviço de Consulta de eventos de remuneração, escriturados no eSocial, que são referentes a desconto de empréstimos consignados. Serviço paginado, com pagina inicial = 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/emprestimos/consultar-escrituracoes-remuneracoes?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&cpf=0&codigoInscricaoEmpregador=0&numeroInscricaoEmpregador=mock-numeroInscricaoEmpregador&nroPagina=1&_status=412
+
+
+### Consulta de Empréstimo — sucesso (200)
+# GET /emprestimos/consultar-emprestimo-trabalhador
+# Servico de Consulta de Empréstimo
+# Query obrigatória: codigoSolicitante, numeroContrato
+# Resposta esperada: 200 — Operacao efetuada
+GET {{baseUrl}}/emprestimos/consultar-emprestimo-trabalhador?codigoSolicitante=0&numeroContrato=mock-numeroContrato
+
+### Consulta de Empréstimo — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-emprestimo-trabalhador
+# Servico de Consulta de Empréstimo
+# Query obrigatória: codigoSolicitante, numeroContrato
+# Resposta esperada: 412 — Erro na Operacao solicitada
+GET {{baseUrl}}/emprestimos/consultar-emprestimo-trabalhador?codigoSolicitante=0&numeroContrato=mock-numeroContrato&_status=412
+
+
+### Consulta de Empréstimos encerrados por término de vínculo — sucesso (200)
+# GET /emprestimos/consultar-emprestimo-encerrado-termino-vinculo
+# Serviço de Consulta de Empréstimos encerrados por término de vínculo. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização.
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/emprestimos/consultar-emprestimo-encerrado-termino-vinculo?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1
+
+### Consulta de Empréstimos encerrados por término de vínculo — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-emprestimo-encerrado-termino-vinculo
+# Serviço de Consulta de Empréstimos encerrados por término de vínculo. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização.
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/emprestimos/consultar-emprestimo-encerrado-termino-vinculo?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1&_status=412
+
+
+### Consulta de Calendário — sucesso (200)
+# GET /emprestimos/consultar-calendario-trabalhador
+# Resposta esperada: 200 — Consulta efetuada
+GET {{baseUrl}}/emprestimos/consultar-calendario-trabalhador?competencia=0
+
+### Consulta de Calendário — erro documentado (412, forçado via _status)
+# GET /emprestimos/consultar-calendario-trabalhador
+# Resposta esperada: 412 — Competencia informada e invalida ou data limite das operacoes nao cadastrada
+GET {{baseUrl}}/emprestimos/consultar-calendario-trabalhador?competencia=0&_status=412

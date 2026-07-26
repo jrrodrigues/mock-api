@@ -1,0 +1,37 @@
+# Requisições de teste do contexto "arquivos" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Upload de arquivos do Consignado Trabalhador. — sucesso (200)
+# POST /arquivos/upload-arquivo
+# Serviço para upload de arquivos pelas instituições financeiras do Consignado Trabalhador.
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/arquivos/upload-arquivo
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "tipo": 0,
+  "nome": "mock-nome",
+  "arquivo": "bW9jay1hcGk="
+}
+
+### Upload de arquivos do Consignado Trabalhador. — erro documentado (412, forçado via _status)
+# POST /arquivos/upload-arquivo
+# Serviço para upload de arquivos pelas instituições financeiras do Consignado Trabalhador.
+# Resposta esperada: 412 — Retorno com erros
+POST {{baseUrl}}/arquivos/upload-arquivo?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 0,
+  "tipo": 0,
+  "nome": "mock-nome",
+  "arquivo": "bW9jay1hcGk="
+}

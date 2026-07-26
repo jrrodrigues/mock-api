@@ -1,0 +1,160 @@
+# Requisições de teste do contexto "trabalhadores" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Autorização de Consulta de Dados do Trabalhadores — sucesso (200)
+# POST /trabalhadores/autorizar-consulta-dados-trabalhador
+# Serviço de Autorização para Consulta de Dados do Trabalhador
+# Resposta esperada: 200 — Autorização Criada
+POST {{baseUrl}}/trabalhadores/autorizar-consulta-dados-trabalhador
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "cpf": 87070728050,
+  "tipoDocumentoIdentificacao": 3,
+  "documentoIdentificacao": "mock-documentoIdentificacao",
+  "termoAutorizacaoTrabalhador": "mock-termoAutorizacaoTrabalhador",
+  "chaveIdentificadora": "mock-chaveIdentificadora",
+  "nsuAutorizacaoDigital": 0,
+  "dataHoraAutorizacaoDigital": "30122024100000",
+  "canalAutorizacaoDigital": 0,
+  "possuiAssinaturaRogo": true,
+  "tituloTermo": "mock-tituloTermo",
+  "autorTermo": "mock-autorTermo",
+  "cidadeAssinaturaTermo": "mock-cidadeAssinaturaTermo",
+  "dataHoraCriacaoTermo": "30122024100000"
+}
+
+### Autorização de Consulta de Dados do Trabalhadores — erro documentado (412, forçado via _status)
+# POST /trabalhadores/autorizar-consulta-dados-trabalhador
+# Serviço de Autorização para Consulta de Dados do Trabalhador
+# Resposta esperada: 412 — Requisição dados inválidos
+POST {{baseUrl}}/trabalhadores/autorizar-consulta-dados-trabalhador?_status=412
+Content-Type: application/json
+
+{
+  "codigoSolicitante": 999,
+  "cpf": 87070728050,
+  "tipoDocumentoIdentificacao": 3,
+  "documentoIdentificacao": "mock-documentoIdentificacao",
+  "termoAutorizacaoTrabalhador": "mock-termoAutorizacaoTrabalhador",
+  "chaveIdentificadora": "mock-chaveIdentificadora",
+  "nsuAutorizacaoDigital": 0,
+  "dataHoraAutorizacaoDigital": "30122024100000",
+  "canalAutorizacaoDigital": 0,
+  "possuiAssinaturaRogo": true,
+  "tituloTermo": "mock-tituloTermo",
+  "autorTermo": "mock-autorTermo",
+  "cidadeAssinaturaTermo": "mock-cidadeAssinaturaTermo",
+  "dataHoraCriacaoTermo": "30122024100000"
+}
+
+
+### Consulta de Lista de Vínculos Autorizados — sucesso (200)
+# GET /trabalhadores/listar-autorizados-trabalhador
+# Serviço de Consulta da Lista de Vínculos Autorizados
+# Query obrigatória: cpf, codigoSolicitante
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/trabalhadores/listar-autorizados-trabalhador?cpf=0&codigoSolicitante=0
+
+### Consulta de Lista de Vínculos Autorizados — erro documentado (412, forçado via _status)
+# GET /trabalhadores/listar-autorizados-trabalhador
+# Serviço de Consulta da Lista de Vínculos Autorizados
+# Query obrigatória: cpf, codigoSolicitante
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/trabalhadores/listar-autorizados-trabalhador?cpf=0&codigoSolicitante=0&_status=412
+
+
+### Consulta de vínculos novos de CPFs com empréstimos encerrados por término de vínculo. — sucesso (200)
+# GET /trabalhadores/consultar-vinculos-novos-trabalhador
+# Serviço de Consulta de vínculos novos de CPFs com empréstimos encerrados por término de vínculo. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização do Empréstimo.
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/trabalhadores/consultar-vinculos-novos-trabalhador?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1
+
+### Consulta de vínculos novos de CPFs com empréstimos encerrados por término de vínculo. — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-vinculos-novos-trabalhador
+# Serviço de Consulta de vínculos novos de CPFs com empréstimos encerrados por término de vínculo. Serviço paginado, com pagina inicial = 1. Consulta pela Data de Atualização do Empréstimo.
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/trabalhadores/consultar-vinculos-novos-trabalhador?codigoSolicitante=0&dataHoraInicio=&dataHoraFim=&nroPagina=1&_status=412
+
+
+### Consulta de Saldo Retido FGTS — sucesso (200)
+# GET /trabalhadores/consultar-saldo-retido-fgts
+# Consulta o saldo retido (bloqueado) de um pedido de bloqueio FGTS do trabalhador.
+# Query obrigatória: contrato, codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 200 — Consulta realizada com sucesso
+GET {{baseUrl}}/trabalhadores/consultar-saldo-retido-fgts?contrato=mock-contrato&codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403
+
+### Consulta de Saldo Retido FGTS — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-saldo-retido-fgts
+# Consulta o saldo retido (bloqueado) de um pedido de bloqueio FGTS do trabalhador.
+# Query obrigatória: contrato, codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 412 — Erro na Operacao solicitada
+GET {{baseUrl}}/trabalhadores/consultar-saldo-retido-fgts?contrato=mock-contrato&codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403&_status=412
+
+
+### Consulta de Saldo FGTS Disponível — sucesso (200)
+# GET /trabalhadores/consultar-saldo-fgts
+# Consulta o saldo FGTS disponível para garantia de E-Consignado do trabalhador.
+# Query obrigatória: codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 200 — Consulta realizada com sucesso
+GET {{baseUrl}}/trabalhadores/consultar-saldo-fgts?codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403
+
+### Consulta de Saldo FGTS Disponível — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-saldo-fgts
+# Consulta o saldo FGTS disponível para garantia de E-Consignado do trabalhador.
+# Query obrigatória: codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 412 — Erro na Operacao solicitada
+GET {{baseUrl}}/trabalhadores/consultar-saldo-fgts?codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403&_status=412
+
+
+### Consulta de Dados de Vínculo do Trabalhador — sucesso (200)
+# GET /trabalhadores/consultar-dados-trabalhador
+# Serviço de Consulta de dados de Vínculo do Trabalhador
+# Query obrigatória: codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/trabalhadores/consultar-dados-trabalhador?codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403
+
+### Consulta de Dados de Vínculo do Trabalhador — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-dados-trabalhador
+# Serviço de Consulta de dados de Vínculo do Trabalhador
+# Query obrigatória: codigoSolicitante, cpf, matricula, codigoInscricaoEmpregador, numeroInscricaoEmpregador
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/trabalhadores/consultar-dados-trabalhador?codigoSolicitante=999&cpf=68019017968&matricula=CONSIGNADO01&codigoInscricaoEmpregador=1&numeroInscricaoEmpregador=47192091008403&_status=412
+
+
+### Consulta de dados básicos de vínculos por CPF para tombamento compulsório — sucesso (200)
+# GET /trabalhadores/consultar-dados-tombamento-compulsorio
+# Serviço para ajudar as instituições que informaram contratos legados, permitindo que, a partir do CPF, elas obtenham informações básicas dos vínculos ativos do trabalhador.
+# Query obrigatória: cpf
+# Resposta esperada: 200 — Operação efetuada
+GET {{baseUrl}}/trabalhadores/consultar-dados-tombamento-compulsorio?cpf=0
+
+### Consulta de dados básicos de vínculos por CPF para tombamento compulsório — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-dados-tombamento-compulsorio
+# Serviço para ajudar as instituições que informaram contratos legados, permitindo que, a partir do CPF, elas obtenham informações básicas dos vínculos ativos do trabalhador.
+# Query obrigatória: cpf
+# Resposta esperada: 412 — Retorno com erros
+GET {{baseUrl}}/trabalhadores/consultar-dados-tombamento-compulsorio?cpf=0&_status=412
+
+
+### Consulta de Autorizações de Consulta de Saldo FGTS  — sucesso (200)
+# GET /trabalhadores/consultar-autorizacoes-saldo-fgts
+# Consulta de Autorizações de Consulta de Saldo FGTS do Trabalhador por período de início e fim .
+# Query obrigatória: dataHoraInicio, dataHoraFim, codigoSolicitante
+# Resposta esperada: 200 — Consulta realizada com sucesso
+GET {{baseUrl}}/trabalhadores/consultar-autorizacoes-saldo-fgts?dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&codigoSolicitante=0&cpf=0&ativos=true&nroPagina=1
+
+### Consulta de Autorizações de Consulta de Saldo FGTS  — erro documentado (412, forçado via _status)
+# GET /trabalhadores/consultar-autorizacoes-saldo-fgts
+# Consulta de Autorizações de Consulta de Saldo FGTS do Trabalhador por período de início e fim .
+# Query obrigatória: dataHoraInicio, dataHoraFim, codigoSolicitante
+# Resposta esperada: 412 — Erro na Operacao solicitada
+GET {{baseUrl}}/trabalhadores/consultar-autorizacoes-saldo-fgts?dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&codigoSolicitante=0&cpf=0&ativos=true&nroPagina=1&_status=412

@@ -1,0 +1,126 @@
+# Requisições de teste do contexto "propostas-ctps" — eConsignado Trabalhador (mock).
+#
+# Gerado automaticamente por scripts/generate-httpclient.js a partir de swagger/swagger.json
+# (NÃO EDITE À MÃO — rode `npm run generate` novamente após alterar o swagger.json).
+#
+# Compatível com a extensão VS Code "REST Client" (humao.rest-client) e com o
+# HTTP Client do IntelliJ/WebStorm. Suba o mock antes de disparar (`npm start`).
+
+@baseUrl = http://localhost:3000
+
+### Realização de Proposta(s) com garantias para solicitação realizada via CTPS Digital — sucesso (200)
+# POST /propostas-ctps/inclusao-garantias
+# Realização de Proposta(s) com garantias para solicitação realizada via CTPS Digital. Se solicitação COM garantia: a) 2 propostas (1 com e 1 sem garantia), b) 1 proposta com garantia, ou c) 1 proposta sem garantia. Se solicitação SEM garantia, deve ser enviada 1 proposta sem garantia.
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/propostas-ctps/inclusao-garantias
+Content-Type: application/json
+
+[
+  {
+    "codigoSolicitante": 999,
+    "numeroProposta": "199912345678",
+    "idSolicitacaoProposta": 1234,
+    "dataHoraValidadeProposta": "28102025103500",
+    "numeroParcelas": 24,
+    "valorParcela": 200,
+    "valorLiberado": 1200,
+    "valorEmprestimo": 1500,
+    "valorIOF": 0.1,
+    "valorTaxaAnual": 1.2,
+    "valorCETAnual": 1,
+    "valorTaxaMensal": 0.5,
+    "valorCETMensal": 0.5,
+    "contatos": [
+      {
+        "tipo": 3,
+        "contato": "fulano@email.com"
+      }
+    ],
+    "temGarantias": true,
+    "valorSaldoDisponivelGarantiaFgts": 98587.56,
+    "valorMultaRescisoriaGarantiaFgts": 5500.45,
+    "percVerbaRescisoriaGarantia": 25
+  }
+]
+
+### Realização de Proposta(s) com garantias para solicitação realizada via CTPS Digital — erro documentado (412, forçado via _status)
+# POST /propostas-ctps/inclusao-garantias
+# Realização de Proposta(s) com garantias para solicitação realizada via CTPS Digital. Se solicitação COM garantia: a) 2 propostas (1 com e 1 sem garantia), b) 1 proposta com garantia, ou c) 1 proposta sem garantia. Se solicitação SEM garantia, deve ser enviada 1 proposta sem garantia.
+# Resposta esperada: 412 — Requisicao com dados invalidos
+POST {{baseUrl}}/propostas-ctps/inclusao-garantias?_status=412
+Content-Type: application/json
+
+[
+  {
+    "codigoSolicitante": 999,
+    "numeroProposta": "199912345678",
+    "idSolicitacaoProposta": 1234,
+    "dataHoraValidadeProposta": "28102025103500",
+    "numeroParcelas": 24,
+    "valorParcela": 200,
+    "valorLiberado": 1200,
+    "valorEmprestimo": 1500,
+    "valorIOF": 0.1,
+    "valorTaxaAnual": 1.2,
+    "valorCETAnual": 1,
+    "valorTaxaMensal": 0.5,
+    "valorCETMensal": 0.5,
+    "contatos": [
+      {
+        "tipo": 3,
+        "contato": "fulano@email.com"
+      }
+    ],
+    "temGarantias": true,
+    "valorSaldoDisponivelGarantiaFgts": 98587.56,
+    "valorMultaRescisoriaGarantiaFgts": 5500.45,
+    "percVerbaRescisoriaGarantia": 25
+  }
+]
+
+
+### (DEPRECIADO) Realização de Proposta para solicitação realizada via CTPS Digital (deprec ated: usar /propostas-ctps/inclusao-garantias) — sucesso (200)
+# POST /propostas-ctps/inclusao
+# Realização de Proposta para solicitação realizada via CTPS Digital. Serviço descontinuado: não aceita solicitações com garantia.
+# [DEPRECIADO no swagger.json]
+# Resposta esperada: 200 — Operação efetuada
+POST {{baseUrl}}/propostas-ctps/inclusao
+
+### (DEPRECIADO) Realização de Proposta para solicitação realizada via CTPS Digital (deprec ated: usar /propostas-ctps/inclusao-garantias) — erro documentado (412, forçado via _status)
+# POST /propostas-ctps/inclusao
+# Realização de Proposta para solicitação realizada via CTPS Digital. Serviço descontinuado: não aceita solicitações com garantia.
+# [DEPRECIADO no swagger.json]
+# Resposta esperada: 412 — Requisicao com dados invalidos
+POST {{baseUrl}}/propostas-ctps/inclusao?_status=412
+
+
+### Consulta de Solicitações de Propostas válidas (paginado) realizadas via CTPS Digital. — sucesso (200)
+# GET /propostas-ctps/solicitacoes-trabalhador-paginado
+# Consulta de Solicitações de Propostas válidas (não expiradas) realizadas via CTPS Digital. Paginação inicial em 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 200 — Consulta efetuada
+GET {{baseUrl}}/propostas-ctps/solicitacoes-trabalhador-paginado?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&nroPagina=1
+
+### Consulta de Solicitações de Propostas válidas (paginado) realizadas via CTPS Digital. — erro documentado (412, forçado via _status)
+# GET /propostas-ctps/solicitacoes-trabalhador-paginado
+# Consulta de Solicitações de Propostas válidas (não expiradas) realizadas via CTPS Digital. Paginação inicial em 1.
+# Query obrigatória: codigoSolicitante, dataHoraInicio, dataHoraFim
+# Resposta esperada: 412 — Requisicao com dados invalidos
+GET {{baseUrl}}/propostas-ctps/solicitacoes-trabalhador-paginado?codigoSolicitante=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&nroPagina=1&_status=412
+
+
+### (DEPRECIADO) Consulta de Solicitações de Propostas válidas realizadas via CTPS Digital. — sucesso (200)
+# GET /propostas-ctps/solicitacoes-trabalhador
+# (DEPRECIADO) Consulta de Solicitações de Propostas válidas (não expiradas) realizadas via CTPS Digital.
+# [DEPRECIADO no swagger.json]
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 200 — Consulta efetuada
+GET {{baseUrl}}/propostas-ctps/solicitacoes-trabalhador?codigoSolicitante=0&idSolicitacaoProposta=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim
+
+### (DEPRECIADO) Consulta de Solicitações de Propostas válidas realizadas via CTPS Digital. — erro documentado (412, forçado via _status)
+# GET /propostas-ctps/solicitacoes-trabalhador
+# (DEPRECIADO) Consulta de Solicitações de Propostas válidas (não expiradas) realizadas via CTPS Digital.
+# [DEPRECIADO no swagger.json]
+# Query obrigatória: codigoSolicitante
+# Resposta esperada: 412 — Requisicao com dados invalidos
+GET {{baseUrl}}/propostas-ctps/solicitacoes-trabalhador?codigoSolicitante=0&idSolicitacaoProposta=0&dataHoraInicio=mock-dataHoraInicio&dataHoraFim=mock-dataHoraFim&_status=412
